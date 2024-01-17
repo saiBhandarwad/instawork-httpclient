@@ -1,0 +1,66 @@
+<nav>
+    <ul class='nav_container'>
+        <div class="left"><span class='insta'>insta</span><span class='work'>work</span>.</div>
+
+        <div class="right">
+            <div *ngIf="isUserValid===false">
+                <span class='nav_link_btn activeLink' (click)=" handleLink('')" id="home">Home</span>
+                <span class='nav_link_btn' (click)="handleLink('login')" id="login">Login</span>
+                <span class='nav_link_btn' (click)="handleLink('signup')" id="signup">Register</span>
+            </div>
+
+            <span *ngIf="isUserValid" class='nav_link_btn' (click)="navigate('post')">post job</span>
+
+            <div *ngIf="isUserValid" class='profile_big_container'>
+                <span class='profile_btn'>{{user?.firstName?.slice(0,1)}}</span>
+                <div class='profile_container'>
+                    <div class='user_name'>{{user?.firstName}} {{user?.lastName}}</div>
+                    <div class='user_email'>{{user?.email}}</div>
+                    <hr class='line' />
+                    <div class="lower">
+                        <div (click) = "navigate('')">home</div>
+                        <div (click) = "navigate('works')">Find Jobs</div>
+                        <div (click) = "navigate('post')">post job</div>
+                        <div (click) = "navigate('')">chats</div>
+                        <div (click) = "navigate('myjobs')">my jobs</div>
+                        <div (click) = "handleLogout()">logout</div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+<!-- mobile nav  -->
+        <div class="auth_mobile_menu">
+            <i *ngIf="!showMenu" class="fa-solid fa-bars" (click)="handleBar()"></i>
+        </div>
+    </ul>
+</nav>
+<!-- after clicking to show  -->
+<div class="menu_container display_none">
+    <div class="mobileMenu">
+        <i *ngIf="showMenu" class="fa-solid fa-x" (click)="handleClose()"></i>
+    </div>
+    <div *ngIf="isUserValid===false" class="menu_inner_container">
+        <div >WELCOME TO INSTAWORK</div>
+        <div >
+            <hr class='line' />
+        </div>
+        <span  (click)="navigate('')">Home</span>
+        <span  (click)="handleLogin()">Login</span>
+        <span  (click)="handleSignup()">Signup</span>
+    </div>
+    <div *ngIf="isUserValid" class="menu_inner_container">
+        <div >{{user?.firstName}} {{user?.lastName}}</div>
+        <div >{{user?.email}}
+            <hr class='line' />
+        </div>
+        <div class='container_for_cursor'>
+            <div class='profile_home' (click)="navigate('')">Home</div>
+            <div class='profile_home' (click)="navigate('works')">Find Jobs</div>
+            <div (click)="navigate('myjobs')">My Jobs</div>
+            <div (click)="navigate('')">Chats</div>
+            <div class='profile_post_job' (click)="navigate('post')">Post Job</div>
+            <div class='profile_logout' (click)="handleLogout()">Logout</div>
+        </div>
+    </div>
+</div>

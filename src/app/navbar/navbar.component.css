@@ -1,0 +1,212 @@
+.display_none{
+    display: none;
+}
+nav{
+    background: #fff;
+    box-shadow: 0px 1px 10px rgb(175, 168, 168);
+    position: sticky;
+    top: 0;
+    z-index: 9;
+}
+.nav_container{
+   display: flex;
+   align-items: center;
+   justify-content: space-between;
+   height: 70px;
+   width: 90%;
+   margin: auto;
+}
+.nav_container .left span{
+    font-size: 30px;
+    cursor: pointer;
+}
+.insta{
+    color: rgb(40, 74, 186);
+}
+.work{
+    color: rgb(213, 50, 115);
+}
+.nav_container .left{
+    padding-left: 10px;
+    font-weight: 700;
+    font-size: 30px;
+    color: rgb(138, 42, 165);
+}
+.nav_container .search_icon,.saved_icon,.chat_icon{
+    height: 25px;
+    /* margin: 0 10px; */
+    cursor: pointer;
+}
+.nav_container .right{
+    display: flex;
+    align-items: center;
+    justify-content: end;
+    gap: 20px;
+    padding: 0;
+}
+.auth_mobile_menu{
+    display: none;
+    font-size: 30px;
+    cursor: pointer;
+}
+.profile_btn{
+    cursor: pointer;
+    padding: 2px 10px 20px 10px;
+    height: 38px;
+    width: 38px;
+    display: grid;
+    place-items: center;
+    border-radius: 50%;
+    font-size: 24px;
+    border: 1px solid rgb(133, 134, 133);
+    background: white;
+    color: #272626;
+    background: linear-gradient(45deg, blue,red);
+    color: white;
+}
+.nav_container .search_btn{
+    height: 33px;
+    padding: 0 5px;
+    margin: 0 20px;
+    background: rgba(139, 188, 211, 0.484);
+}
+.nav_container .jobs{
+    font-size: 22px;
+    cursor: pointer;
+    font-weight: 500;
+    color: #272626;
+}
+.menu_container{
+    position: fixed;
+    right: 0;
+    top: 0px;
+    background: #00000075;
+    height: calc(100vh);
+    width: 100vw;
+    z-index: 9;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 500;
+    color: #06253f;
+}
+.menu_inner_container{
+    position: relative;
+    box-sizing: border-box;
+    height: calc(100vh - 70px);
+    width: calc(100vw- 20px);
+    top: 50px;
+    margin: 0 10px;
+    background: white;
+    border-radius: 10px;
+    padding: 20px;
+    font-size: 18px;
+    font-family: monospace;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+.menu_inner_container span{
+    cursor: pointer;
+}
+.menu_inner_container span:hover, .container_for_cursor div:hover{
+    color: rgba(255, 0, 0, 0.408);
+    font-weight: bold;
+}
+.fa-x{
+    position: absolute;
+    right: 16px;
+    top: 25px;
+    font-size: 15px;
+    color: rgb(255, 255, 255);
+}
+.nav_link_btn{
+    cursor: pointer;
+    background: #1a385d;
+    padding: 6px 25px;
+    border-radius: 50px;
+    white-space: nowrap;
+    text-align: center;
+    color: white;
+    margin-right: 10px;
+}
+.activeLink{
+    background: #5d241a;
+}
+.profile_big_container{
+    height: 70px;
+    width: 70px;
+    display: grid;
+    place-items: center;
+    cursor: pointer;
+    position: relative;
+}
+.profile_container{
+    position: absolute;
+    min-height: 200px;
+    min-width: 260px;
+    box-sizing: border-box;
+    cursor: default;
+    right: 0px;
+    top: 70px;
+    box-shadow: 1px 1px 10px black;
+    background: white;
+    color: black;
+    display: none;
+    padding: 20px 15px;
+}
+
+.profile_big_container:hover{
+    background: #59b8d047;
+}
+.profile_big_container:hover  .profile_container{
+    display: block;
+}
+.user_name{
+    font-size: 16px;
+    font-weight: 600;
+    color: #272626;
+}
+.user_email{
+    font-size: 16px;
+    font-weight: 400;
+    color: #3d3838;
+}
+.line{
+    color: #000;
+    margin-top: 10px;
+}
+.lower{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 10px;
+    text-transform: capitalize;
+}
+.lower div:hover{
+    cursor: pointer;
+    color: rgba(24, 24, 243, 0.951);
+}
+.container_for_cursor{
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+.container_for_cursor div{
+    cursor: pointer;
+}
+
+@media screen and (max-width:768px) {
+    .nav_container{
+        width: calc(100% - 20px);
+        margin: 0;
+        padding: 0 10px;
+    }
+    .nav_container .left{
+        padding: 0;
+    }
+    .nav_container .right{
+        display: none;
+    }
+    .auth_mobile_menu{
+        display: block;
+    }
+}

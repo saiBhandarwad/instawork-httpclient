@@ -1,0 +1,57 @@
+<div *ngIf="loading" class="job_container d-center">
+    <app-loader></app-loader>
+</div>
+<div *ngIf="!loading" class="temp-div">
+        <div *ngIf="jobArray.length ===0; else jobData" class="job_container d-center">{{noDataMsg}}</div>
+    <ng-template #jobData>
+        <div *ngFor="let work of jobArray; index as i;" class="job_container">
+            <i *ngIf="work.owner === email || action==='remove'" class="fa-solid fa-ellipsis-vertical moreBtn"
+                (click)="handleMore(true, i)"></i>
+            <div class="more-container" id=moreContainer{{i}}>
+                <i class='fa-solid fa-xmark' (click)="handleMore(false, i)"></i>
+                <div *ngIf="action === 'remove'" (click)="removeFromSaved(work)">Unsave</div>
+                <div *ngIf="work.owner === email" (click)="deleteWork(work)">Delete</div>
+                <div *ngIf="work.owner === email" (click)="updateWork(work)">Update</div>
+            </div>
+            <div class="job_title"> {{work.type}}</div>
+            <div class="company_info">{{work.user.firstName}} {{work.user.lastName}}</div>
+            <div class="job_location"><img src="../../assets/location.png" alt="" />{{work.city}} {{work.address}}</div>
+            <div class="job_related_info">
+                <div class="job_start_date">
+                    <p class='job_img_container'><img src="../../assets/calendar.png" alt="" />START DATE</p>
+                    <p class='text-center'>{{work.startDate.slice(0, 10)}}</p>
+                </div>
+                <div class="job_duration">
+                    <p class='job_img_container'><img src="../../assets/hourglass.png" alt="" />DURATION</p>
+                    <p class='text-center'>{{work.duration}} day</p>
+                </div>
+                <div class="job_validity">
+                    <p class='job_img_container'><img src="../../assets/calendar.png" alt="" />END BY</p>
+                    <p class='text-center'>{{work.endDate.slice(0, 10)}}</p>
+                </div>
+                <div class="job_salary">
+                    <p class='job_img_container'><img src="../../assets/salary.png" alt="" />SALARY</p>
+                    <p class='text-center'>&#8377; {{work.salary}}</p>
+                </div>
+            </div>
+            <div class="extra_info">
+                <div class="job_posted_info">
+                    <img src="../../assets/history.png" alt="" />
+                    <span>{{work.daysAgo}}</span>
+                </div>
+                <div class="job_posted_info">
+                    <img src="../../assets/salary.png" alt="" />
+                    <span>{{work.salaryPeriod}} Payment</span>
+                </div>
+            </div>
+            <div class="job_apply_btn">
+                <button *ngIf="work.status === 'saved'" class='savedBtn'>saved✅</button>
+
+                <button *ngIf="work.status !== 'saved'" class='saveBtn' (click)="optSaveJob($event,work)">SAVE
+                    JOB</button>
+            </div>
+        </div>
+    </ng-template>
+</div>
+
+<app-post *ngIf="showUpdateBox" [workToUpdate]="workToUpdate" [showUpdateBox]="showUpdateBox" (hideContainerEvent)="hideContainer($event)"></app-post>

@@ -1,0 +1,71 @@
+<div class="filter_holder">
+    <div class="filter_container">
+        <div class="filter_icon">
+            <img src="../../assets/filter-filled-tool-symbol.png" alt="" />
+            <span>Filters</span>
+        </div>
+        <div class="profile">
+<!-- ************** work type options ********************** -->
+            <label>Work Type</label>
+            <br />
+            <input type="text" [(ngModel)]="workTypeValue" (keyup)="handleWorkTypeArray($event)" placeholder='eg. Loading and Unloading' (focus)="handleWorkType(true)" (focusout)="handleWorkType(false)" id="workTypeValue"/>
+
+            <div *ngIf="showWorkOptions" class='work_option_container' >
+                <div *ngFor="let work of workTypeArray; index as i;" class="work_option" (mousedown)="handleWorkOption($event, work)">{{work}}</div>
+                <div *ngIf="workTypeArray.length===0" class='location_option'>no match found</div>
+            </div>
+        </div>
+<!--******************** location options **************************************-->
+
+        <div class="location">
+            <label htmlFor="location">Location</label>
+            <br />
+            <input type="text" [(ngModel)]="cityValue" (keyup)="handleCityArray($event)" placeholder='eg. Pune' name='location' (focus)="handleLocation(true)" (focusout)="handleLocation(false)" id="cityValue"/>
+
+            <div *ngIf="showLocationOptions" class='location_option_container'>
+                <div *ngFor="let city of cityArray; index as i;" class="location_option" (mousedown)="handleCityOption($event, city)">{{city}}</div>
+                <div *ngIf="cityArray.length===0" class='location_option'>no match found</div>
+            </div>
+        </div>
+
+        <div class="salary">
+            <label htmlFor="salary">Salary</label>
+            <span class='salary_range display_none' id='salary_range'>salaryRange</span>
+            <span class='salary_range_bg display_none' id='salary_range_bg'></span>
+            <br />
+            <div class="range">
+                <span>0.5k</span><input type="range" value="0.5" step='1' min='0.5' max='10.5' (change)="handleSalary($event)"/> <span>10k</span>
+            </div>
+        </div>
+        <div class="salary_period_container">
+            <p>Salary Period</p>
+            <div class="salary_period">
+                <input type="radio" id='dailyRadioInput' name='salary_period' (click)="handleSalaryPeriod('daily')"
+                />
+                <label htmlFor="salary_period"> Daily</label>
+                <input type="radio" id='weeklyRadioInput' name='salary_period' (click)="handleSalaryPeriod('weekly')"/>
+                <label htmlFor="salary_period"> Weekly</label>
+                <input type="radio" id='anyRadioInput' name='salary_period' (click)="handleSalaryPeriod('any')" checked="true"/>
+                <label htmlFor="salary_period"> Any</label>
+            </div>
+        </div>
+        <div class="sortby_container">
+            <p><img src="../../assets/sort.png" alt="" />Sort By <button class='active' id='asc'
+                    (click)="handleSortType($event)">asc</button> <button class='' id='desc'
+                    (click)="handleSortType($event)">desc</button></p>
+            <div class="latest">
+                <input type="radio" name='sort' id='latestRadioInput' (click)="handleSortBy('postedDate')" checked="true" />
+                <span>Latest</span>
+            </div>
+            <div class="duration">
+                <input type="radio" name='sort' (click)="handleSortBy('duration')"/>
+                <span>Duration</span>
+            </div>
+            <div class="salary_sorter">
+                <input type="radio" id='salaryRadioInput' name='sort' (click)="handleSortBy('salary')" />
+                <span>Salary</span>
+            </div>
+        </div>
+        <button class='reset_btn' (click)="handleReset($event)">Reset</button>
+    </div>
+</div>

@@ -1,0 +1,67 @@
+<div [class]="containerClass" (click)="handleContainer()">
+    <div class="post-form" (click)="stopPropogation($event)">
+        <i *ngIf="showUpdateBox" class='fa-solid fa-xmark closeBtn' (click)="handleContainer()"></i>
+        <div class="post-inner-container">
+            <p class='post-heading'>Find Worker With Us!</p>
+            <div class="post-detail">
+                <div class="post-left">
+                    <div class="input-container">
+                        <label htmlFor="">Work Type</label>
+                        <br />
+                        <input type="text" placeholder="e.g. painting" [(ngModel)]="workType" id="workType"/>
+                    </div>
+                    <div class="input-container">
+                        <label htmlFor="">Salary</label>
+                        <br />
+                        <input type="number" placeholder='e.g. 500' [(ngModel)]="salary" id="salary"/>
+                    </div>
+                    <div class="input-container">
+                        <label htmlFor="">City</label>
+                        <br />
+                        <input placeholder='e.g. pune' [(ngModel)]="city" id="city"/>
+                    </div>
+                    <div class="input-container">
+                        <label htmlFor="">Duration</label>
+                        <br />
+                        <input type="number" placeholder='e.g. days in number' [(ngModel)]="duration" id="duration"/>
+                    </div>
+                    <div class="input-container">
+                        <label htmlFor="">Salary Period</label>
+                        <br />
+                        <button class='salaryBtn' id="daily" (click)="handleActive($event)">Daily</button>
+                        <button class='salaryBtn' id='weekly' (click)="handleActive($event)" >Weekly</button>
+                    </div>
+                </div>
+
+                <div class="post-right">
+                    <div class="input-container">
+                        <label htmlFor="">Start Date</label>
+                        <br />
+                        <input type="date" [(ngModel)]="startDate" id="startDate"/>
+                    </div>
+                    <div class="input-container">
+                        <label htmlFor="">End Date</label>
+                        <br />
+                        <input type="date" [(ngModel)]="endDate" id="endDate"/>
+                    </div>
+
+                    <div class="input-container">
+                        <label htmlFor="">Work Details</label>
+                        <br />
+                        <textarea [(ngModel)]="workDetails" id="workDetails"></textarea>
+                    </div>
+                    <div class="input-container">
+                        <label htmlFor="">Full Address</label>
+                        <br />
+                        <textarea [(ngModel)]="address" id="address"></textarea>
+                    </div>
+                </div>
+            </div>
+            <div class='postBtnContainer'>
+                <button *ngIf="showUpdateBox" class='postBtn' (click)="handlePost('update')">UPDATE JOB</button>
+                <button *ngIf="!showUpdateBox" class='postBtn' (click)="handlePost('post')">POST JOB</button>
+            </div>
+        </div>
+    </div>
+</div>
+<app-notify *ngIf="showNotify"></app-notify>

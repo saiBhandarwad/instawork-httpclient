@@ -1,0 +1,10 @@
+<div class="main_heading_container">
+    <div class="main_heading">Ab Paise Ki Tension Ko Karo Bye Bye!
+      <br />
+      Find Work With Us!</div>
+  </div>
+<div class="work-container">
+    <app-filter (filterEvent)="handleFilterWorks($event)" (loadingEvent)="handleLoading($event)" [isWorkUpdated]="isWorkUpdated"></app-filter>
+    <app-job [jobArray]="allWorks" action="" [loading]="loading" (updateWorkEvent)="handleUpdateWorkEvent()" (deleteWorkEvent)="deleteWork($event)" (saveJobEvent)="handleSaveJob()"></app-job>
+</div>
+<app-notify *ngIf="showNotify"></app-notify>

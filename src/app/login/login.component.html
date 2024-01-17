@@ -1,0 +1,43 @@
+<div class="login_holder">
+    <div class="login_container">
+        <div class="login_left">
+            <img src="../../assets/welcome.avif" alt="" />
+        </div>
+        <div class="login_right_container">
+            <div class="login_right">
+                <p class='login_heading'>USER LOGIN</p>
+                <div class="user_holder">
+                    <input type="text" [(ngModel)]="email" id='login_email' placeholder='Enter email here' />
+                    <img src="../../assets/mail.png" alt="" id='userIcon' />
+                </div>
+                <div class="password_holder">
+                    <input type="text" [(ngModel)]="password" id='login_password' placeholder='Enter password here'/>
+                    <img src="../../assets/padlock.png" alt="" id='lockIcon' />
+                </div>
+                <div class="forgot_password">forgot password?</div>
+                <button class="login_btn" (click)="optLogin()">LOGIN</button>
+                <p class='not_have_account' (click)="navigate('signup')">not have an account?</p>
+                <div class="or">OR</div>
+                <div class="login_with_mobile">
+                    <input type="number" [(ngModel)]="mobileNumber" placeholder='Login With Mobile' id='mobile_number' (keyup)=handleMobileNumber($event) />
+                    <button class='send_otp_btn' (click)="optSendOTP()">SEND OTP</button>
+                    <img src="../../assets/telephone.png" alt="" id='phoneIcon' />
+                </div>
+                <div *ngIf="showOTP" class='otp_input_container' id="otp_container">
+                    <label htmlFor="" class='labelForOTP'>Enter OTP : </label>
+                    <input type="number" (keyup)= "handleOTP($event,'login_otp2')" id='login_otp1' />
+                    <input type="number" (keyup)="handleOTP($event,'login_otp3')" (keyup.backspace)="handleBackSpace($event,'login_otp1')" id='login_otp2' />
+                    <input type="number" (keyup)="handleOTP($event,'login_otp4')" (keyup.backspace)="handleBackSpace($event,'login_otp2')" id='login_otp3' />
+                    <input type="number" (keyup)="handleOTP($event,'',BindVerifyOTP)" (keyup.backspace)="handleBackSpace($event,'login_otp3')" id='login_otp4' />
+                    <div class="otp_status_container">
+                       <p *ngIf="OTPSent" class='otp_status_success'>✅ OTP sent successfully</p>
+                        <p *ngIf="otpVerified===false" class='otp_status_fail'>❌ wrong OTP</p>
+                        <p *ngIf="invalidNumber" class='otp_status_fail'>❌ Invalid Number</p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+<app-notify *ngIf="showNotify"></app-notify>

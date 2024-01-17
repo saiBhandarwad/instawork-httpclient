@@ -1,0 +1,78 @@
+<div class="signup_holder">
+    <div class="signup_container">
+        <div class="signup_left_container">
+            <div class="signup_left">
+                <p class='signup_heading'>USER SIGNUP</p>
+                <div class="user_holder">
+                    <input type="text" id='first_name' placeholder='Enter First Name' (change)="handleFirstName()" title='minimum length should be 3'/>
+                    <img src="../../assets/user.png" alt="" id='firstNameIcon' />
+                    <input type="text" id='last_name' placeholder='Enter Last Name' (change)="handleLastName()" title='minimum length should be 3'/>
+                    <img src="../../assets/user.png" alt="" id='lastNameIcon' />
+                </div>
+                <div class="email_holder">
+                    <input type="text" id='email' placeholder='Enter email here' (change)="handleEmail()" title='email should include @ and .'/>
+                    <img src="../../assets/mail.png" alt="" id='mailIcon' />
+                </div>
+                <div class="email_verify_container">
+                    <div class="email_verify_status">
+                       <div *ngIf="emailVerified" class="verify_success">
+                            ✅verified
+                        </div>
+                        <div *ngIf="emailVerified===false" class="verify_fail">
+                            ❌not verified
+                        </div>
+                    </div>
+                    <p class="email_verify_btn" (click)="handleVerifyEmail()">
+                        verify email
+                    </p>
+                </div>
+                <div *ngIf="showEmailOTP" class='otp_input_container' id="otp_container">
+                    <label htmlFor="" class='labelForOTP'>Enter OTP : </label>
+                    <input type="number" (change)="handleOTP('otp2')" id='otp1' />
+                    <input type="number" (change)="handleOTP('otp3')" onKeyUp="handleBackSpace('otp1')" id='otp2' />
+                    <input type="number" (change)="handleOTP('otp4')" onKeyUp="handleBackSpace('otp2')" id='otp3' />
+                    <input type="number" (change)="handleOTP('', verifyOTP)" onKeyUp="handleBackSpace('otp3')" id='otp4' />
+                    <div class="otp_status_container">
+                        <p *ngIf="OTPSent" class='otp_status_success'>✅ OTP sent successfully</p>
+                        
+                        <p *ngIf="otpVerified===false" class='otp_status_fail'>❌ wrong OTP</p>
+                    </div>
+                </div>
+                <div class="password_holder">
+                    <input type="text" id='password' placeholder='Enter password here' (change)="handlePassword()" title='minimum length should be 6'/>
+                    <img src="../../assets/padlock.png" alt="" id='passwordIcon' />
+                    <input type="text" id='confirmPassword' placeholder='Enter password again' (change)="handleConfirmPassword()" />
+                    <img src="../../assets/padlock.png" alt="" id='confirmPasswordIcon' />
+                </div>
+
+                <div class="signup_with_mobile">
+                    <input  type="number" placeholder='Enter Mobile No' id='mobile_number' (change)="handleMobileNum()" />
+                    <button class='send_otp_btn' (click)="sendMobileOTP()">SEND OTP</button>
+                    <img src="../../assets/padlock.png" alt="" id='phoneIcon' />
+                    
+                </div>
+               <p *ngIf="mobileNumberVerified">✅verified</p>
+               <p *ngIf="mobileNumberVerified===false">❌not verified</p>
+                <div *ngIf="showMobileOTP" class='otp_input_container' id="otp_container">
+                    <label htmlFor="" class='labelForOTP'>Enter OTP : </label>
+                    <input type="number" (change)="handleMobileOTP('mob_otp2')" id='mob_otp1' />
+                    <input type="number" (change)="handleMobileOTP('mob_otp3')" onKeyUp="handleBackSpace(e, 'mob_otp1')" id='mob_otp2' />
+                    <input type="number" (change)="handleMobileOTP('mob_otp4')" onKeyUp="handleBackSpace(e, 'mob_otp2')" id='mob_otp3' />
+                    <input type="number" (change)="handleMobileOTP('',verifyMobileOTP)" onKeyUp="handleBackSpace(e, 'mob_otp3')" id='mob_otp4' />
+                    <div class="otp_status_container">
+                        <p *ngIf="mobileOTPSent" class='otp_status_success'>✅ OTP sent successfully</p>
+                        
+                        <p *ngIf="isMobileValid===false" class='otp_status_fail'>❌ Invalid Number</p>
+                        <p *ngIf="mobileOTPVerified===false && isMobileValid" class='otp_status_fail'>❌ wrong OTP</p>
+                    </div>
+                </div>
+                <button class="signup_btn" (click)="handleSignup()">SIGNUP</button>
+                <p class='not_have_account' (click)="navigate('login')" >already have an account?</p>
+            </div>
+
+        </div>
+        <div class="signup_img_container">
+            <img class='welcome_img' src="../../assets/welcome.avif" alt="" />
+        </div>
+    </div>
+</div>

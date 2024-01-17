@@ -1,0 +1,176 @@
+.login_holder{
+    height: calc(100vh - 70px);
+    width: 100vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgb(207, 208, 208);
+}
+.login_container{
+    display: flex;
+    box-shadow: 1px 1px 10px #c8c8c8,-1px -1px 10px #c8c8c8;
+    background: white;
+}
+.login_container .login_left img{
+    height: 500px;
+    width: 350px;
+}
+.login_left{
+    height: 500px;
+    width: 350px;
+    display: flex;
+}
+.login_right_container{
+    margin-left: 0px;
+    width: 350px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.login_heading{
+    text-align: center;
+    font-weight: 500;
+    color: rgb(139, 94, 181);
+    font-size: 22px;
+    
+}
+#login_email,#login_password{
+    display: block;
+    border-radius: 50px;
+    outline: none;
+    height: 30px;
+    width: 100%;
+    margin-top: 25px;
+    padding-left: 50px;
+    font-size: 14px;
+    border: 1px solid grey;
+    background: #e8f0fe;
+    color:black;
+}
+.error_field{
+    animation: blink 1s ease-in-out infinite;
+}
+@keyframes blink {
+    0%{
+        border: 1.25px solid red;
+        color: red;
+    }
+    70%{
+        border: 1.25px solid red;
+        color: red;
+    }
+    100%{
+        border: 1px solid black;
+        color: black;
+    }
+}
+#userIcon,#lockIcon{
+    height: 20px;
+    width: 20px;
+    position: absolute;
+    bottom: 6px;
+    left: 15px;
+}
+.password_holder, .user_holder, .login_with_mobile{
+    position: relative;
+}
+.forgot_password,.not_have_account{
+    font-size: 14px;
+    text-align: end;
+    padding-right: 18px;
+    margin-top: 8px;
+    text-decoration: underline;
+    color: rgb(93, 93, 209);
+    font-weight: 500;
+    cursor: pointer;
+}
+.not_have_account{
+    text-align: center;
+}
+.login_btn{
+    height: 30px;
+    width: 280px;
+    margin-top: 20px;
+    cursor: pointer;
+    border-radius: 50px;
+    font-size: 16px;
+    font-weight: 500;
+    color: #3c3c3c;
+    /* background: rgba(75, 58, 153, 0.5); */
+    border: 1px solid #3c3c3c;
+}
+.or{
+    text-align: center;
+    margin-top: 15px;
+    font-size: 16px;
+    color: #c05e5e;
+}
+#mobile_number{
+    width: 180px;
+    padding-left: 40px;
+    border-top: none !important;
+    border-left: none !important;
+    border-right: none !important;
+    border-bottom-width: 2px !important;
+    border-bottom: 2px solid black ;
+    outline: none;
+    font-size: 15px;
+}
+#phoneIcon{
+    height: 22px;
+    width: 22px;
+    position: absolute;
+    bottom: 5px;
+    left: 5px;
+}
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+}
+.send_otp_btn{
+    height: 30px;
+    width: 100px;
+    margin-top: 20px;
+    cursor: pointer;
+    border-radius: 50px;
+    font-size: 14px;
+    font-weight: 500;
+    color: #3c3c3c;
+    
+}
+#otp_container{
+    margin-top: 25px;
+}
+.labelForOTP{
+    font-size: 18px;
+    margin-right: 20px;
+    position: relative;
+    top: 5px;
+    font-weight: 500;
+    color: #3c3c3c;
+}
+#otp_container input{
+    width: 20px;
+    border: none;
+    outline: none;
+    border-bottom: 2px solid black;
+    margin-right: 4px;
+    font-size: 16px;
+    text-align: center;
+}
+.otp_status_container{
+    margin-top: 30px;
+    text-align: center;
+}
+.otp_status_success{
+    color: green;
+}
+.otp_status_fail{
+    color: red;
+}
+
+@media screen and (max-width:720px) {
+    .login_container .login_left img{
+        display: none;
+    }
+}

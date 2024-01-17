@@ -1,0 +1,208 @@
+.filter_holder {
+    position: sticky;
+    top: 100px;
+    height: 80vh;
+    width: 300px;
+    background: white;
+}
+
+.filter_container {
+    height: 80vh;
+    box-shadow: -1px -1px 5px rgb(175, 167, 167), 1px 1px 5px rgb(175, 167, 167);
+    padding: 5px 20px;
+    background: white;
+    border-radius: 5px ;
+}
+
+.filter_icon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    margin-top: 5px;
+}
+
+.filter_icon img {
+    height: 25px;
+    width: 25px;
+}
+
+.filter_container input[type="text"] {
+    outline: none;
+    width: 250px;
+    height: 30px;
+    margin-top: 10px;
+    padding: 1px 5px;
+}
+
+.filter_container .profile,
+.location,
+.salary {
+    margin: 20px 0;
+    position: relative;
+}
+
+.work_option_container, .location_option_container {
+    background: white;
+    z-index: 10;
+    position: absolute;
+    box-sizing: border-box;
+    padding: 5px;
+    width: 263px;
+    box-shadow: 1px 1px 10px #c8c8c8, -1px -1px 10px #c8c8c8;
+    height: 100px;
+    overflow-y: scroll;
+}
+.work_option_container::-webkit-scrollbar,.location_option_container::-webkit-scrollbar {
+    width: 5px;
+}
+
+.work_option_container::-webkit-scrollbar-thumb, .location_option_container::-webkit-scrollbar-thumb {
+    background: #888;
+}
+
+.work_option_container::-webkit-scrollbar-track,.location_option_container::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+
+.work_option:hover,.location_option:hover {
+    cursor: pointer;
+    background: #a2d8ef6b;
+    color: blue;
+}
+
+.salary input {
+    width: 200px;
+    height: 3px;
+    margin: 0;
+}
+
+.salary_range_bg {
+    position: relative;
+    top: 10px;
+    left: -40px;
+    display: inline-block;
+    height: 35px;
+    width: 35px;
+    border: 2px solid rgb(0, 0, 0);
+    background: #664aff;
+    border-top-right-radius: 50%;
+    border-top-left-radius: 50%;
+    border-bottom-left-radius: 50%;
+    z-index: 1;
+    transform: translateX(-50%) rotate(45deg)
+}
+
+.salary_range {
+    position: relative;
+    left: -24px;
+    color: white;
+    border: white;
+    z-index: 2;
+}
+.display_none{
+    visibility: hidden;
+}
+.salary_period_container p {
+    margin-bottom: 10px;
+}
+
+.salary_period {
+    display: flex;
+    align-items: center;
+}
+
+.salary_period label {
+    margin: 0 15px 0 5px;
+}
+
+.salary_period input {
+    width: 15px;
+    height: 15px;
+    margin: 0;
+    cursor: pointer;
+}
+
+.salary input::-webkit-slider-runnable-track {
+    height: 3px;
+    background: #000;
+}
+
+.salary input::-webkit-slider-thumb {
+    position: relative;
+    bottom: 7px;
+    cursor: pointer;
+    background: cadetblue;
+}
+.range {
+    margin-top: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.sortby_container {
+    margin-top: 20px;
+}
+
+.sortby_container p {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+.sortby_container p button{
+    padding: 0px 5px;
+    margin-left: 10px;
+    cursor: pointer;
+}
+.sortby_container img {
+    height: 25px;
+    position: relative;
+    right: 5px;
+}
+
+.sortby_container input {
+    height: 15px;
+    width: 15px;
+    margin: 0;
+    cursor: pointer;
+}
+.sortby_container button{
+    background: white;
+    color: black;
+    text-decoration: line-through;
+}
+.sortby_container .active{
+    background: rgba(0, 0, 255, 0.529);
+    border: 2px solid rgb(125, 170, 255);
+    border-radius: 2px;
+    text-decoration: none;
+}
+.sortby_container .latest,
+.duration,
+.salary_sorter {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.apply_btn {
+    position: absolute;
+    padding: 2.5px 10px;
+    bottom: 10px;
+    right: 20px;
+    cursor: pointer;
+}
+.reset_btn{
+    position: absolute;
+    padding: 2.5px 10px;   
+    bottom: 10px;
+    cursor: pointer;
+}
+
+@media screen and (max-width:1200px) {
+    .filter_holder{
+        margin: 10px 0;
+    }
+}

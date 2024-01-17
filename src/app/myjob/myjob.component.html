@@ -1,0 +1,15 @@
+<div class="main_heading_container">
+    <div class="main_heading">Ab Paise Ki Tension Ko Karo Bye Bye!
+        <br />
+        Find Work With Us!</div>
+</div>
+<div class="job-container">
+    <div class="jobs_btn">
+        <div class='jobs_btn_wrapper'>
+            <span class='my_jobs' id="my_jobs" (click)="handleMyJobs()">my jobs</span>
+            <span class='saved_jobs' id="saved_jobs" (click)="handleMySavedJobs()">saved jobs</span>
+            <span class='bg_btn left' id="bg_btn"></span>
+        </div>
+    </div>
+    <app-job [jobArray]="allWorks" [action]="action" [loading]="loading" (removeFromSavedEvent)="handleRemoveFromSaved()" (saveJobEvent)="handleSaveJob()"></app-job>
+</div>

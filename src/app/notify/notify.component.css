@@ -1,0 +1,42 @@
+.notify_container {
+    position: fixed;
+    right: 10px;
+    bottom: 10px;
+    background: #292525;
+    color: white;
+    width: auto;
+    padding: 5px;
+    animation: hide 2s ease-in-out 1;
+}
+
+.notify_msg {
+    display: inline;
+    font-size: 18px;
+    margin: 0 10px;
+}
+
+.close_btn {
+    display: inline;
+    cursor: pointer;
+    margin-left: 0;
+}
+
+.progress_line {
+    height: 4px;
+    position: relative;
+    right: 5px;
+    bottom: -5px;
+    background: green;
+    animation: progress 5s ease-in-out 1;
+    width: 0px;
+}
+
+@keyframes progress {
+    0% {
+        width: 0px;
+    }
+
+    100% {
+        width: calc(100% + 10px);
+    }
+}

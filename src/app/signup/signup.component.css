@@ -1,0 +1,212 @@
+.signup_holder{
+    height: calc(100vh - 70px);
+    width: 100vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgb(207, 208, 208);
+}
+.signup_container{
+    display: flex;
+    box-shadow: 1px 1px 10px #c8c8c8,-1px -1px 10px #c8c8c8;
+    background: white;
+}
+.welcome_img{
+    height: 100%;
+    width: 400px;
+}
+.signup_img_container{
+    height: auto;
+}
+.signup_left_container{
+    width: 400px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.signup_heading{
+    text-align: center;
+    font-weight: 500;
+    color: rgb(139, 94, 181);
+    font-size: 22px;
+    margin-top: 25px;
+}
+#email,#password,#first_name,#last_name,#confirmPassword{
+    display: block;
+    border-radius: 50px;
+    outline: none;
+    height: 30px;
+    width: 100%;
+    margin-top: 25px;
+    padding-left: 50px;
+    font-size: 14px;
+    border: 1px solid black;
+    background: #e8f0fe;
+    color:black;
+}
+.error_field{
+    animation: blink 1s ease-in-out infinite;
+}
+@keyframes blink {
+    0%{
+        border: 1.25px solid red;
+        color: red;
+    }
+    70%{
+        border: 1.25px solid red;
+        color: red;
+    }
+    100%{
+        border: 1px solid black;
+        color: black;
+    }
+}
+#password{
+    margin-top: 5px;
+}
+.firstname_status{
+    color: red;
+    font-size: 12px;
+    padding-left: 10px;
+}
+#lastNameIcon,#firstNameIcon,#passwordIcon,#mailIcon,#confirmPasswordIcon{
+    height: 20px;
+    width: 20px;
+    position: absolute;
+    bottom: 6px;
+    left: 15px;
+}
+#passwordIcon{
+    bottom: 62px;
+}
+#mailIcon{
+    bottom: 4px;
+    height: 25px;
+    width: 25px;
+}
+#firstNameIcon{
+    top: 5px;
+}
+#lastNameIcon{
+    bottom: 5px;
+}
+#confirmPasswordIcon{
+    bottom: 6px;
+}
+.password_holder, .user_holder, .signup_with_mobile, .email_holder{
+    position: relative;
+    width: 290px;
+}
+.email_verify_container{
+ display: flex;
+ align-items: center;
+ margin-top: 5px;
+ justify-content: space-between;
+}
+.email_verify_btn{
+    font-size: 14px;
+    text-decoration: underline;
+    color: red;
+    font-weight: 500;
+    cursor: pointer;
+}
+
+.signup_with_mobile{
+    margin-top: 20px;
+}
+.signup_with_mobile input{
+
+}
+.signup_btn{
+    height: 30px;
+    width: 270px;
+    margin-top: 40px;
+    cursor: pointer;
+    border-radius: 50px;
+    font-size: 16px;
+    font-weight: 500;
+    color: #3c3c3c;
+    /* background: rgba(75, 58, 153, 0.5); */
+    border: 1px solid #3c3c3c;
+}
+
+#mobile_number{
+    width: 180px;
+    padding-left: 40px;
+    border: none;
+    border-bottom: 2px solid;
+    border-bottom: 2px solid black;
+    outline: none;
+    font-size: 15px;
+}
+#phoneIcon{
+    height: 22px;
+    width: 22px;
+    position: absolute;
+    bottom: 5px;
+    left: 5px;
+}
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+}
+.send_otp_btn{
+    height: 30px;
+    width: 100px;
+    cursor: pointer;
+    border-radius: 50px;
+    font-size: 14px;
+    font-weight: 500;
+    color: #3c3c3c;
+    
+}
+#otp_container{
+    margin-top: 0px;
+}
+.labelForOTP{
+    font-size: 18px;
+    margin-right: 20px;
+    position: relative;
+    top: 5px;
+    font-weight: 500;
+    color: #3c3c3c;
+}
+#otp_container input{
+    width: 20px;
+    border: none;
+    outline: none;
+    border-bottom: 2px solid black;
+    margin-right: 4px;
+    font-size: 16px;
+    text-align: center;
+}
+.otp_status_container{
+    margin-top: 15px;
+    text-align: center;
+}
+.otp_status_success{
+    color: green;
+}
+.otp_status_fail{
+    color: red;
+}
+@media screen and (max-width:800px) {
+    .signup_container .signup_img_container img{
+        display: none;
+    }
+    .signup_left_container{
+        height: 600px;
+    }
+}
+@media screen and (max-width:450px) {
+    .signup_container{
+        width: 90%;
+        margin: auto;
+    }
+}
+@media screen and (max-width:400px) {
+    .signup_container{
+        width: 95%;
+        margin: auto;
+    }
+}
